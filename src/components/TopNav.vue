@@ -39,11 +39,13 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-basis: 10%;
       a {
         display: block;
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
       }
       &__github {
         background: url('../assets/github.svg') no-repeat center;
@@ -54,10 +56,11 @@ export default {
         background-size: contain;
       }
       &__remove {
+        margin-right: 10px;
         background: url('../assets/garbage.svg') no-repeat center;
         background-size: contain;
-        height: 30px;
-        width: 30px;
+        height: 20px;
+        width: 20px;
       }
     }
   }

@@ -53,24 +53,24 @@ export default {
     },
     rotateImg() {
       this.cropper.rotate(90)
-      this.photo.src = this.cropper.url
+      this.photo.src = this.cropper.getCroppedCanvas().toDataURL()
     },
     scaleImgX() {
       this.cropper.scaleX(this.scaleX)
       this.scaleX = this.scaleX > 0 ? -1 : 1
-      this.photo.src = this.cropper.url
+      this.photo.src = this.cropper.getCroppedCanvas().toDataURL()
     },
     scaleImgY() {
       this.cropper.scaleY(this.scaleY)
       this.scaleY = this.scaleY > 0 ? -1 : 1
-      this.photo.src = this.cropper.url
+      this.photo.src = this.cropper.getCroppedCanvas().toDataURL()
     },
     cancelEditing() {
       this.cropper.clear()
       this.seen = false
     },
     saveChanges() {
-      this.cropper.replace(this.cropper.getCroppedCanvas().toDataURL())
+      this.cropper.replace(this.cropper.getCroppedCanvas().toDataURL()) 
       this.photo.src = this.cropper.url
       this.seen = false
     }
@@ -110,6 +110,8 @@ export default {
       }
     }
     &-actions {
+      padding: 10px;
+      background: rgba(0, 0, 0, .4);
       position: absolute;
       right: 0;
       top: 50%;
@@ -117,8 +119,11 @@ export default {
       display: flex;
       flex-direction: column;
       button {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
+        &:not(:last-child) {
+          margin-bottom: 10px;
+        }
       }
       &__save {
         background: url('../assets/save-file-option.svg') no-repeat center;
