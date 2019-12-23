@@ -20,14 +20,6 @@ export default {
     }
   },
   components: { TopNav, Loader, Editor },
-  watch: {
-    photo: {
-      handler(val) {
-        console.log( val.src )
-      },
-      deep: true
-    }
-  }
 }
 </script>
 
